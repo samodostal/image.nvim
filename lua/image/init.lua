@@ -1,6 +1,6 @@
 local M = {}
 
-local config = require("config")
+local config = require("image.config")
 
 function M.setup(opts)
 	opts = opts or {}
