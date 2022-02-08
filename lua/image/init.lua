@@ -1,11 +1,12 @@
 local M = {}
 
-function M.setup(config)
-	if not config then
-		config = {}
-	end
+local config = require("config")
 
-	print("Image.nvim plugin set-up...")
+function M.setup(opts)
+	opts = opts or {}
+	opts = vim.tbl_deep_extend("force", config.DEFAULT_OPTS, opts)
+
+	print("Image.nvim plugin set-up with opts: ", opts)
 end
 
 return M
