@@ -61,7 +61,7 @@ local get_image_width_height = function(file)
 	file:seek "set"
 	-- Detect if BMP
 	if file:read(2) == "BM" then
-		--[[ 
+		--[[
 			The strategy is:
 			1. Seek to position 0x12
 			2. Get value in little-endian order
@@ -88,11 +88,12 @@ local get_image_width_height = function(file)
 			2. Store biggest value in variable
 			3. Return biggest value
 		]]
-		local curb = 0
+		local lastb, curb = 0, 0
 		local sstr = file:read(1)
 		while sstr ~= nil do
+			lastb = curb
 			curb = sstr:byte()
-			if curb == 194 or curb == 192 then
+			if (curb == 194 or curb == 192) and lastb == 255 then
 				file:seek("cur", 3)
 				local sizestr = file:read(4)
 				local h = sizestr:sub(1, 1):byte() * 256 + sizestr:sub(2, 2):byte()
@@ -166,7 +167,8 @@ local get_image_width_height = function(file)
 			The strategy is
 			1. Read all file contents
 			2. Find "Btomlong" and "Rghtlong" string
-			3. Extract values in big-endian order(strangely, II stands for Intel byte ordering(little-endian) but it's in big-endian)
+			3. Extract values in big-endian order(strangely, II stands for Intel byte
+			ordering(little-endian) but it's in big-endian)
 		]]
 		local temp = file:read "*a"
 		local btomlong = { temp:find "Btomlong" }
