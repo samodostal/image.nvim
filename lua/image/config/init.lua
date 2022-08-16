@@ -1,9 +1,5 @@
 local M = {}
 
-M.DEFAULT_OPTS = {
-	padding = 5,
-}
-
 M.SUPPORTED_FILE_PATTERNS = {
 	"*.jpeg",
 	"*.jpg",
@@ -12,7 +8,12 @@ M.SUPPORTED_FILE_PATTERNS = {
 	"*.webp",
 	"*.tiff",
 	"*.tif",
-	"*.gif",
+}
+
+M.BUFFER_OPTIONS_BEFORE = {}
+
+M.DEFAULT_OPTS = {
+	padding = 3,
 }
 
 return M
