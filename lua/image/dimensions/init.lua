@@ -231,18 +231,24 @@ end
 
 M.calculate_ascii_width_height = function(buf_id, buf_path, opts)
 	local padding = opts.padding
-	local win_width = vim.api.nvim_win_get_width(buf_id) - padding
-	local win_height = vim.api.nvim_win_get_height(buf_id) - padding
+	local win_width = vim.api.nvim_win_get_width(buf_id)
+	local win_height = vim.api.nvim_win_get_height(buf_id)
 
 	-- PERF: Possibly expensive operation
 	local img_width, img_height = get_image_width_height(buf_path)
 
-	local scale = math.min(win_width / img_width, win_height / img_height)
+	-- x2 for terminal fonts being 2/1 in aspect ratio
+	img_width = img_width * 2
 
-	local ascii_width = math.floor(img_width * scale * 2) -- x2 for terminal fonts being 2/1 in aspect ratio
+	local scale = math.min((win_width - padding * 2) / img_width, (win_height - padding * 2) / img_height)
+
+	local ascii_width = math.floor(img_width * scale)
 	local ascii_height = math.floor(img_height * scale)
 
-	return ascii_width, ascii_height
+	local horizntal_padding = math.floor((win_width - ascii_width) / 2)
+	local vertical_padding = math.floor((win_height - ascii_height) / 2)
+
+	return ascii_width, ascii_height, horizntal_padding, vertical_padding
 end
 
 return M
