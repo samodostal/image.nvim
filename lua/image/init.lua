@@ -23,8 +23,10 @@ local on_image_open = function()
 	options.set_options_before_render(buf_id)
 	ui.buf_clear(buf_id)
 
+	local label = ui.create_label(buf_path, ascii_width, horizontal_padding)
+
 	local ascii_data = api.get_ascii_data(buf_path, ascii_width, ascii_height, global_opts)
-	ui.buf_insert_data_with_padding(buf_id, ascii_data, horizontal_padding, vertical_padding)
+	ui.buf_insert_data_with_padding(buf_id, ascii_data, horizontal_padding, vertical_padding, label, global_opts)
 
 	options.set_options_after_render(buf_id)
 end
