@@ -88,12 +88,11 @@ local get_image_width_height = function(file)
 			2. Store biggest value in variable
 			3. Return biggest value
 		]]
-		local lastb, curb = 0, 0
+		local curb = 0
 		local sstr = file:read(1)
 		while sstr ~= nil do
-			lastb = curb
 			curb = sstr:byte()
-			if (curb == 194 or curb == 192) and lastb == 255 then
+			if curb == 194 or curb == 192 then
 				file:seek("cur", 3)
 				local sizestr = file:read(4)
 				local h = sizestr:sub(1, 1):byte() * 256 + sizestr:sub(2, 2):byte()
