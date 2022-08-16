@@ -89,7 +89,6 @@ local get_image_width_height = function(file)
 			3. Return biggest value
 		]]
 		local lastb, curb = 0, 0
-		local xylist = {}
 		local sstr = file:read(1)
 		while sstr ~= nil do
 			lastb = curb
@@ -170,12 +169,12 @@ local get_image_width_height = function(file)
 			2. Find "Btomlong" and "Rghtlong" string
 			3. Extract values in big-endian order(strangely, II stands for Intel byte ordering(little-endian) but it's in big-endian)
 		]]
-		temp = file:read "*a"
-		btomlong = { temp:find "Btomlong" }
-		rghtlong = { temp:find "Rghtlong" }
+		local temp = file:read "*a"
+		local btomlong = { temp:find "Btomlong" }
+		local rghtlong = { temp:find "Rghtlong" }
 		if #btomlong == 2 and #rghtlong == 2 then
-			heightstr = temp:sub(btomlong[2] + 1, btomlong[2] + 5)
-			widthstr = temp:sub(rghtlong[2] + 1, rghtlong[2] + 5)
+			local heightstr = temp:sub(btomlong[2] + 1, btomlong[2] + 5)
+			local widthstr = temp:sub(rghtlong[2] + 1, rghtlong[2] + 5)
 			refresh()
 			width = widthstr:sub(1, 1):byte() * 16777216
 				+ widthstr:sub(2, 2):byte() * 65536
@@ -230,7 +229,7 @@ local get_image_width_height = function(file)
 end
 
 M.calculate_ascii_width_height = function(buf_id, buf_path, opts)
-	local padding = opts.padding
+	local padding = opts.min_padding
 	local win_width = vim.api.nvim_win_get_width(buf_id)
 	local win_height = vim.api.nvim_win_get_height(buf_id)
 
