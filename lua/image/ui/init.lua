@@ -20,7 +20,7 @@ local insert_blank_lines = function(data, i)
 	end
 end
 
-M.buf_insert_data_with_padding = function(buf_id, data, horizontal_padding, vertical_padding, label, conf)
+M.buf_insert_data_with_padding = function(buf_id, data, horizontal_padding, vertical_padding, label, opts)
 	local data_with_padding = {}
 
 	local horizontal_string = string.rep(" ", horizontal_padding)
@@ -32,7 +32,7 @@ M.buf_insert_data_with_padding = function(buf_id, data, horizontal_padding, vert
 
 	table.insert(data_with_padding, "")
 
-	if conf.show_label then
+	if opts.render.show_label then
 		table.insert(data_with_padding, label)
 	else
 		table.insert(data_with_padding, "")
