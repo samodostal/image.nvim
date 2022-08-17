@@ -1,5 +1,5 @@
 # image.nvim
-**Image Viewer as ASCII Art for Neovim**
+**Image Viewer as ASCII Art for Neovim, written in Lua**
 
 <p align="center">
   <img src="assets/demo.gif" alt="animated" width="100%" />
