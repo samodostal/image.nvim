@@ -39,9 +39,14 @@ Plug 'nvim-lua/plenary.nvim'
 ```lua
 -- Require and call setup function somewhere in your init.lua
 require('image').setup {
-  min_padding = 5,
-  show_label = true,
-  render_using_dither = true,
+  render = {
+    min_padding = 5,
+    show_label = true,
+    use_dither = true,
+  },
+  events = {
+    update_on_nvim_resize = true,
+  },
 }
 ```
 

@@ -4,7 +4,7 @@ local M = {}
 
 M.get_ascii_data_sync = function(buf_path, ascii_width, ascii_height, opts, callback)
 	local command = nil
-	if opts.render_using_dither then
+	if opts.render.use_dither then
 		command = { "ascii-image-converter", buf_path, "-b", "--dither", "-d", ascii_width .. "," .. ascii_height }
 	else
 		command = { "ascii-image-converter", buf_path, "-d", ascii_width .. "," .. ascii_height }

@@ -230,7 +230,7 @@ local get_image_width_height = function(file)
 end
 
 M.calculate_ascii_width_height = function(buf_id, buf_path, opts)
-	local padding = opts.min_padding
+	local padding = opts.render.min_padding
 	local win_width = vim.api.nvim_win_get_width(buf_id)
 	local win_height = vim.api.nvim_win_get_height(buf_id)
 
