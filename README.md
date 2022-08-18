@@ -1,5 +1,23 @@
-# image.nvim
-**Image Viewer as ASCII Art for Neovim, written in Lua**
+<h1 align="center">image.nvim</h1>
+
+<p align="center">
+	<b>Image Viewer as ASCII Art for Neovim, written in Lua</b>
+</p>
+
+<p align="center">
+    <a href="https://github.com/samodostal/image.nvim/issues">
+			<img src="https://img.shields.io/github/issues/samodostal/image.nvim" alt="Issues"/>
+		</a>
+		<a href="https://github.com/samodostal/image.nvim/stargazers">
+			<img src="https://img.shields.io/github/stars/samodostal/image.nvim" alt="Repository's starts"/>
+		</a>
+    <a href="https://github.com/samodostal/image.nvim/blob/master/LICENSE">
+			<img src="https://img.shields.io/github/license/samodostal/image.nvim" alt="License"/>
+		</a>
+    <a href="https://github.com/samodostal/image.nvim/commits/main">
+			<img src="https://img.shields.io/github/last-commit/samodostal/image.nvim" alt="Latest commit"/>
+		</a>
+</p>
 
 <p align="center">
   <img src="assets/demo.gif" alt="animated" width="100%" />
