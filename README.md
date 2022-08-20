@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/demo.gif" alt="animated" width="100%" />
+  <img src="https://user-images.githubusercontent.com/44208530/185737751-9dbd8423-92c8-4f22-b51b-25c79576dc69.gif" alt="animated" width="100%" />
 </p>
 
 ## Features
