@@ -3,11 +3,19 @@ local async = require "plenary.async"
 local M = {}
 
 M.get_ascii_data_sync = function(buf_path, ascii_width, ascii_height, opts, callback)
-	local command = nil
+	local command = { "ascii-image-converter", buf_path, "-d", ascii_width .. "," .. ascii_height }
+
 	if opts.render.use_dither then
-		command = { "ascii-image-converter", buf_path, "-b", "--dither", "-d", ascii_width .. "," .. ascii_height }
-	else
-		command = { "ascii-image-converter", buf_path, "-d", ascii_width .. "," .. ascii_height }
+		table.insert(command, 2, "-b")
+		table.insert(command, 2, "--dither")
+	end
+
+	if opts.render.foreground_color then
+		table.insert(command, 2, "-C")
+	end
+
+	if opts.render.background_color then
+		table.insert(command, 2, "--color-bg")
 	end
 
 	vim.fn.jobstart(command, {
