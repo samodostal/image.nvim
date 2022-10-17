@@ -40,7 +40,12 @@ M.buf_insert_data_with_padding = function(buf_id, data, horizontal_padding, vert
 
 	insert_blank_lines(data_with_padding, vertical_padding - 2)
 
-	vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, data_with_padding)
+	if opts.render.foreground_color or opts.render.background_color then
+		local baleia = require("baleia").setup()
+		baleia.buf_set_lines(buf_id, 0, -1, false, data_with_padding)
+	else
+		vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, data_with_padding)
+	end
 end
 
 return M

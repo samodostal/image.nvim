@@ -61,6 +61,8 @@ require('image').setup {
     min_padding = 5,
     show_label = true,
     use_dither = true,
+    foreground_color = false,
+    background_color = false
   },
   events = {
     update_on_nvim_resize = true,
@@ -68,5 +70,10 @@ require('image').setup {
 }
 ```
 
+## Color support with `render.foreground_color` and `render.background_color`:
+**Colors are turned off by default.**
+The reason is a significant delay when opening images and an additional dependency: plugin [baleia.nvim](https://github.com/m00qek/baleia.nvim) (no need to setup, only install)
+`render.background_color` setting is a nice addition that enables colors not only for characters, but also for the space behind them.
+
 ## TODO
-- [ ] Support for gifs
+- [x] Color support
