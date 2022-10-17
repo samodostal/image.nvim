@@ -70,10 +70,13 @@ require('image').setup {
 }
 ```
 
-## Color support with `render.foreground_color` and `render.background_color`:
+## Colors support:
 **Colors are turned off by default.**
-The reason is a significant delay when opening images and an additional dependency: plugin [baleia.nvim](https://github.com/m00qek/baleia.nvim) (no need to setup, only install)
-`render.background_color` setting is a nice addition that enables colors not only for characters, but also for the space behind them.
+- The reason for colors not being on by default is a significant delay when opening images + an additional dependency: plugin [baleia.nvim](https://github.com/m00qek/baleia.nvim) (no need to call setup, only install)
+- Enable options`render.foreground_color` and `render.background_color`
+- `render.background_color` setting is a nice addition that enables colors not only for characters, but also for the space behind them.
+
+![image](https://user-images.githubusercontent.com/44208530/196240715-619e0823-ab7f-46d9-a38a-3209aeee7652.png)
 
 ## TODO
 - [x] Color support
