@@ -1,16 +1,13 @@
 local M = {}
 
-local async = require "plenary.async"
-
-local config = require "image.config"
-local ui = require "image.ui"
-local dimensions = require "image.dimensions"
-local api = require "image.api"
-local options = require "image.options"
-
 local global_opts = nil
 
 local on_image_open = function()
+	local ui = require "image.ui"
+	local options = require "image.options"
+	local dimensions = require "image.dimensions"
+	local api = require "image.api"
+
 	local buf_id = 0
 	local buf_path = vim.api.nvim_buf_get_name(buf_id)
 
@@ -29,6 +26,9 @@ local on_image_open = function()
 end
 
 function M.setup(user_opts)
+	local config = require "image.config"
+	local async = require "plenary.async"
+
 	user_opts = user_opts or {}
 	global_opts = vim.tbl_deep_extend("force", config.DEFAULT_OPTS, user_opts)
 
