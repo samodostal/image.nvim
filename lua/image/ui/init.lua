@@ -4,10 +4,12 @@ M.create_label = function(buf_path, ascii_width, horizontal_padding)
 	local label = buf_path:match "^.+/(.+)$"
 	local win_width = ascii_width + horizontal_padding * 2
 
-	local padding_left_size = math.floor((win_width - #label) / 2)
-	label = string.rep(" ", padding_left_size) .. label
-
-	return label
+	if label then
+		local padding_left_size = math.floor((win_width - #label) / 2)
+		return string.rep(" ", padding_left_size) .. label
+	else
+		return ""
+	end
 end
 
 M.buf_clear = function(buf_id)
