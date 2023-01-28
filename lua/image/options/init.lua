@@ -12,6 +12,7 @@ M.set_options_after_render = function(buf_id)
 	vim.cmd [[ setlocal norelativenumber ]]
 	vim.cmd [[ setlocal colorcolumn=0 ]]
 	vim.cmd [[ setlocal signcolumn=no ]]
+	vim.cmd [[ setlocal nocursorline ]]
 	vim.cmd [[ setlocal nolist ]]
 end
 
