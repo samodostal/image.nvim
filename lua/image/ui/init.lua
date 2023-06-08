@@ -6,7 +6,7 @@ M.create_label = function(buf_path, ascii_width, horizontal_padding, show_image_
 
 	if label then
 		if show_image_dimensions then
-			label = label .. " - " .. img_width .. "x" .. img_height .. " pixels"
+			label = label .. " - " .. img_width .. "x" .. img_height .. " px"
 		end
 		local padding_left_size = math.floor((win_width - #label) / 2)
 		return string.rep(" ", padding_left_size) .. label

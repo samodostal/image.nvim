@@ -12,13 +12,19 @@ local on_image_open = function()
 	local buf_path = vim.api.nvim_buf_get_name(buf_id)
 
 	local ascii_width, ascii_height, horizontal_padding, vertical_padding, img_width, img_height =
-			dimensions.calculate_ascii_width_height(buf_id, buf_path, global_opts)
+		dimensions.calculate_ascii_width_height(buf_id, buf_path, global_opts)
 
 	options.set_options_before_render(buf_id)
 	ui.buf_clear(buf_id)
 
-	local label =
-			ui.create_label(buf_path, ascii_width, horizontal_padding, global_opts.render.show_image_dimensions, img_width, img_height)
+	local label = ui.create_label(
+		buf_path,
+		ascii_width,
+		horizontal_padding,
+		global_opts.render.show_image_dimensions,
+		img_width,
+		img_height
+	)
 
 	local ascii_data = api.get_ascii_data(buf_path, ascii_width, ascii_height, global_opts)
 	ui.buf_insert_data_with_padding(buf_id, ascii_data, horizontal_padding, vertical_padding, label, global_opts)
