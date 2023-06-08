@@ -1,10 +1,13 @@
 local M = {}
 
-M.create_label = function(buf_path, ascii_width, horizontal_padding)
+M.create_label = function(buf_path, ascii_width, horizontal_padding, show_image_dimensions, img_width, img_height)
 	local label = buf_path:match "^.+/(.+)$"
 	local win_width = ascii_width + horizontal_padding * 2
 
 	if label then
+		if show_image_dimensions then
+			label = label .. " - " .. img_width .. "x" .. img_height .. " pixels"
+		end
 		local padding_left_size = math.floor((win_width - #label) / 2)
 		return string.rep(" ", padding_left_size) .. label
 	else

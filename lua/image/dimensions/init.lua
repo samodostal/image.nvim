@@ -17,7 +17,6 @@ local M = {}
 	9. AVI
 	(*) = experimental
 ]]
-
 local get_image_width_height = function(file)
 	local fileinfo = type(file)
 	if type(file) == "string" then
@@ -248,7 +247,7 @@ M.calculate_ascii_width_height = function(buf_id, buf_path, opts)
 	local horizntal_padding = math.floor((win_width - ascii_width) / 2)
 	local vertical_padding = math.floor((win_height - ascii_height) / 2)
 
-	return ascii_width, ascii_height, horizntal_padding, vertical_padding
+	return ascii_width, ascii_height, horizntal_padding, vertical_padding, img_width / 2, img_height
 end
 
 return M
