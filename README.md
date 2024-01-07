@@ -1,3 +1,6 @@
+> [!NOTE]
+> Due to lack of time, this plugin has been archived. Please switch to a newer and maintained [3rd/image.nvim](https://github.com/3rd/image.nvim).
+
 <h1 align="center">image.nvim</h1>
 
 <p align="center">
